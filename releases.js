@@ -2,6 +2,7 @@
   'use strict';
   const repository = 'https://github.com/ElAbraxX/Army-Launcher-Releases';
   const api = 'https://api.github.com/repos/ElAbraxX/Army-Launcher-Releases/releases?per_page=20';
+  const refreshIntervalMs = 5 * 60 * 1000;
   const list = document.getElementById('versions-list');
   const badge = document.getElementById('release-badge');
   const title = document.getElementById('release-title');
@@ -13,7 +14,7 @@
       const url = new URL(asset.browser_download_url);
       if (url.origin !== 'https://github.com') return null;
       if (!url.pathname.startsWith('/ElAbraxX/Army-Launcher-Releases/releases/download/')) return null;
-      if (!/^KryonCraft-.*-x64-Setup\.exe$/i.test(asset.name || '')) return null;
+      if (!/^KryonCraft-\d+\.\d+\.\d+-x64-Setup\.exe$/i.test(asset.name || '')) return null;
       return url.href;
     } catch { return null; }
   }
@@ -26,7 +27,13 @@
     return repository + '/releases';
   }
   function installer(release) {
-    return Array.isArray(release.assets) ? release.assets.find(asset => installerUrl(asset)) : null;
+    if (!Array.isArray(release.assets)) return null;
+    const asset = release.assets.find(item => installerUrl(item));
+    const metadata = release.assets.find(item => item.name === 'latest.yml');
+    if (!asset || !metadata) return null;
+    const version = asset.name.match(/^KryonCraft-(\d+\.\d+\.\d+)-x64-Setup\.exe$/i)?.[1];
+    if (!version || release.tag_name !== 'v' + version) return null;
+    return asset;
   }
   function addLink(parent, label, href) {
     const link = document.createElement('a');
@@ -67,7 +74,7 @@
     } else if (badge) {
       badge.textContent = 'Sin instalador';
       title.textContent = 'Versiones publicadas sin instalador';
-      description.textContent = 'La descarga aparecerá cuando se adjunte un instalador de Windows.';
+      description.textContent = 'La descarga aparecerá cuando se adjunten el instalador y latest.yml a la publicación.';
       download.hidden = true;
     }
     if (!list) return;
@@ -95,11 +102,35 @@
       list.append(card);
     }
   }
-  const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), 9000);
-  fetch(api, { headers: { Accept: 'application/vnd.github+json' }, signal: controller.signal })
-    .then(response => { if (!response.ok) throw new Error('GitHub ' + response.status); return response.json(); })
-    .then(data => { if (!Array.isArray(data)) throw new Error('Respuesta inesperada'); render(data); })
-    .catch(() => empty('No se pudo consultar el historial. Abre las versiones directamente en GitHub.', 'Historial no disponible ahora'))
-    .finally(() => clearTimeout(timeout));
+  let loading = false;
+  async function refresh() {
+    if (loading || document.hidden) return;
+    loading = true;
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 9000);
+    try {
+      const response = await fetch(api, {
+        headers: { Accept: 'application/vnd.github+json' },
+        cache: 'no-store',
+        signal: controller.signal
+      });
+      if (!response.ok) throw new Error('GitHub ' + response.status);
+      const data = await response.json();
+      if (!Array.isArray(data)) throw new Error('Respuesta inesperada');
+      render(data);
+    } catch {
+      if (!download?.href) {
+        empty('No se pudo consultar el historial. Abre las versiones directamente en GitHub.', 'Historial no disponible ahora');
+      }
+    } finally {
+      clearTimeout(timeout);
+      loading = false;
+    }
+  }
+  refresh();
+  setInterval(refresh, refreshIntervalMs);
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden) refresh();
+  });
 })();
+
