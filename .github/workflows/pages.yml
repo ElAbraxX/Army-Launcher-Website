@@ -5,7 +5,11 @@ on:
     paths:
       - "index.html"
       - "styles.css"
+      - "releases.js"
+      - "versiones.html"
+      - "assets/**"
       - "favicon.svg"
+      - ".nojekyll"
       - ".github/workflows/pages.yml"
   workflow_dispatch:
 permissions:

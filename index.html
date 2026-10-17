@@ -4,50 +4,67 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#100c12">
-  <meta name="description" content="Army Launcher: un launcher de Minecraft Java para jugar con Army SMP, importar modpacks y sincronizar archivos desde GitHub cuando lo necesites.">
-  <title>Army Launcher — Minecraft Java a tu manera</title>
+  <meta name="description" content="Descarga KryonCraft para Windows, consulta sus versiones y conoce el launcher de Minecraft Java.">
+  <title>Descargar KryonCraft · Versiones y novedades</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="stylesheet" href="styles.css">
+  <script src="releases.js" defer></script>
 </head>
 <body>
   <header class="topbar">
-    <a class="brand" href="#inicio" aria-label="Army Launcher, inicio">
-      <span class="brand-mark" aria-hidden="true">A</span>
-      <span>ARMY <small>LAUNCHER</small></span>
+    <a class="brand" href="#inicio" aria-label="KryonCraft, inicio">
+      <img class="brand-mark" src="assets/kryoncraft-mark.png" alt="" width="34" height="34">
+      <span>KRYON <small>CRAFT</small></span>
     </a>
     <nav aria-label="Navegación principal">
+      <a href="#descargar">Descargar</a>
       <a href="#funciones">Funciones</a>
-      <a href="#servidores">Para servidores</a>
-      <a class="nav-cta" href="https://elabraxx.github.io/Army-Launcher-Website/">Sitio oficial <span aria-hidden="true">↗</span></a>
+      <a href="versiones.html">Versiones</a>
+      <a class="nav-cta" href="https://dsc.gg/kryoncraft" target="_blank" rel="noopener noreferrer">Discord <span aria-hidden="true">↗</span></a>
     </nav>
   </header>
 
   <main id="inicio">
     <section class="hero">
       <div class="hero-copy">
-        <p class="eyebrow"><span class="pulse"></span> MINECRAFT JAVA · PROTOTIPO EN DESARROLLO</p>
-        <h1>Army siempre<br><em>a tu manera.</em></h1>
-        <p class="hero-lede">Un launcher para iniciar tu Minecraft, organizar tus instancias y tener tu modpack listo cuando quieras jugar.</p>
+        <p class="eyebrow"><span class="pulse"></span> KRYONCRAFT PARA WINDOWS · EN DESARROLLO</p>
+        <h1>KryonCraft,<br><em>a tu manera.</em></h1>
+        <p class="hero-lede">Instala Minecraft Java, organiza tus instancias y prepara tus mods en un solo lugar. Descarga cada versión desde el repositorio oficial.</p>
         <div class="hero-actions">
-          <a class="button button-primary" href="#funciones">Conoce Army <span aria-hidden="true">↓</span></a>
-          <a class="button button-secondary" href="https://elabraxx.github.io/Army-Launcher-Website/">Información oficial <span aria-hidden="true">↗</span></a>
+          <a class="button button-primary" href="#descargar">Ver descarga <span aria-hidden="true">↓</span></a>
+          <a class="button button-secondary" href="versiones.html">Historial de versiones <span aria-hidden="true">↗</span></a>
         </div>
-        <p class="hero-note"><span aria-hidden="true">●</span> Jugar localmente no requiere conectar un repositorio.</p>
+        <p class="hero-note"><span aria-hidden="true">●</span> Windows de 64 bits · Minecraft Java requiere una cuenta Microsoft con el juego.</p>
       </div>
-      <div class="hero-art" aria-label="Emblema de Army Launcher">
+      <div class="hero-art" aria-label="Emblema de KryonCraft">
         <div class="orbit orbit-one"></div>
         <div class="orbit orbit-two"></div>
         <div class="orbit orbit-three"></div>
         <span class="spark spark-one">✦</span>
         <span class="spark spark-two">✦</span>
         <div class="tile tile-back"></div>
-        <div class="tile tile-front">A</div>
+        <div class="tile tile-front"><img src="assets/kryoncraft-mark.png" alt=""></div>
         <div class="art-caption"><span>PREPARA TU PARTIDA</span><strong>Empieza aquí.</strong></div>
       </div>
       <div class="hero-grid" aria-hidden="true"></div>
     </section>
 
-    <section class="highlights" aria-label="Resumen de Army Launcher">
+    <section class="download-section" id="descargar" aria-labelledby="download-title">
+      <div class="download-copy">
+        <p class="eyebrow">INSTALACIÓN</p>
+        <h2 id="download-title">Descarga oficial.</h2>
+        <p>El instalador de Windows se publica en el <a href="https://github.com/ElAbraxX/Army-Launcher-Releases/releases" rel="noopener noreferrer">repositorio de versiones</a>. Esta página consulta la versión y su enlace directamente desde GitHub.</p>
+      </div>
+      <div class="download-card" aria-live="polite">
+        <div class="download-card-head"><span class="download-platform" aria-hidden="true">▦</span><div><strong>Windows 64 bits</strong><small>Instalador .exe de KryonCraft</small></div><span class="release-badge" id="release-badge">Consultando</span></div>
+        <h3 id="release-title">Buscando versiones publicadas…</h3>
+        <p id="release-description">La descarga aparecerá cuando exista un instalador oficial.</p>
+        <div class="download-actions"><a class="button button-primary" id="download-button" hidden>Descargar instalador ↘</a><a class="download-link" id="release-page-link" href="versiones.html">Ver todas las versiones ↗</a></div>
+        <small class="download-caution">Las versiones beta pueden cambiar. Consulta sus notas antes de instalar.</small>
+      </div>
+    </section>
+
+    <section class="highlights" aria-label="Resumen de KryonCraft">
       <article><span class="highlight-icon">01</span><div><strong>Tu instancia, tus reglas</strong><small>Vanilla o un cargador compatible</small></div></article>
       <article><span class="highlight-icon">02</span><div><strong>Modpacks flexibles</strong><small>.mrpack, ZIP y archivos .jar</small></div></article>
       <article><span class="highlight-icon">03</span><div><strong>Sincronización opcional</strong><small>GitHub solo para modpacks remotos</small></div></article>
@@ -57,7 +74,7 @@
       <div class="section-heading">
         <p class="eyebrow">HECHO PARA JUGAR</p>
         <h2>Todo claro antes<br>de darle a <em>Jugar.</em></h2>
-        <p>Elige una instalación local o importa un pack. Army separa esas opciones para que no tengas que configurar GitHub si solo quieres iniciar Minecraft.</p>
+        <p>Elige una instalación local o importa un pack. KryonCraft separa esas opciones para que no tengas que configurar GitHub si solo quieres iniciar Minecraft.</p>
       </div>
       <div class="feature-grid">
         <article class="feature-card feature-card-large">
@@ -83,7 +100,7 @@
           <div>
             <p class="card-kicker">ACTUALIZACIONES DEL MODPACK</p>
             <h3>El repositorio es opcional para jugar.</h3>
-            <p>Si un administrador publica un manifiesto en GitHub, Army puede comprobar los cambios y sincronizar los archivos de esa instancia. Los jugadores no necesitan configurar una cuenta de GitHub.</p>
+            <p>Si un administrador publica un manifiesto en GitHub, KryonCraft puede comprobar los cambios y sincronizar los archivos de esa instancia. Los jugadores no necesitan configurar una cuenta de GitHub.</p>
           </div>
           <div class="sync-visual" aria-hidden="true"><span>MANIFIESTO</span><i>↓</i><span>INSTANCIA</span><b>SHA-256 verificado</b></div>
         </article>
@@ -103,7 +120,7 @@
         </article>
         <article class="path-card">
           <span class="path-number">B</span>
-          <div><h3>Sincronizar un modpack</h3><p>Usa esta opción si el servidor te dio un repositorio y manifiesto de Army.</p></div>
+          <div><h3>Sincronizar un modpack</h3><p>Usa esta opción si el servidor te dio un repositorio y manifiesto de KryonCraft.</p></div>
           <span class="path-label">OPCIONAL</span>
         </article>
       </div>
@@ -113,8 +130,8 @@
       <div class="server-copy">
         <p class="eyebrow">PARA PROPIETARIOS DE SERVIDORES</p>
         <h2>Tu comunidad.<br><em>Tu GitHub.</em></h2>
-        <p>Army está preparado para que un servidor publique su propio manifiesto y archivos desde un repositorio público. Así cada comunidad puede mantener su pack por separado.</p>
-        <p class="service-note"><span>↗</span> La adaptación de marca y el soporte para distribuidores serán servicios opcionales de pago. Las condiciones se definirán antes de ofrecerlos.</p>
+        <p>KryonCraft está preparado para que un servidor publique su propio manifiesto y archivos desde un repositorio público. Así cada comunidad puede mantener su pack por separado.</p>
+        <p class="service-note"><span>↗</span> La adaptación de marca y el soporte para distribuidores son servicios opcionales. Consulta sus condiciones antes de contratarlos.</p>
       </div>
       <div class="manifest-card" aria-label="Ejemplo de manifiesto del modpack">
         <div class="manifest-top"><span class="window-dots"><i></i><i></i><i></i></span><span>army-manifest.json</span><span class="live-label">PÚBLICO</span></div>
@@ -133,20 +150,20 @@
 
     <section class="requirements">
       <div class="req-mark">i</div>
-      <div><strong>Cuenta y permisos</strong><p>Para iniciar Minecraft Java se requiere una cuenta Microsoft con licencia. La distribución de mods depende de los permisos de sus autores y de las condiciones de cada plataforma. Army no aloja ni vende mods de terceros.</p></div>
+      <div><strong>Cuenta y permisos</strong><p>Para iniciar Minecraft Java se requiere una cuenta Microsoft con licencia. La distribución de mods depende de los permisos de sus autores y de las condiciones de cada plataforma. KryonCraft no aloja ni vende mods de terceros.</p></div>
     </section>
 
     <section class="closing">
-      <p class="eyebrow">ARMY LAUNCHER · EN DESARROLLO</p>
+      <p class="eyebrow">KRYONCRAFT · EN DESARROLLO</p>
       <h2>Tu próxima partida<br>empieza <em>aquí.</em></h2>
-      <a class="button button-primary" href="https://elabraxx.github.io/Army-Launcher-Website/">Ver el proyecto en GitHub <span aria-hidden="true">↗</span></a>
+      <a class="button button-primary" href="#descargar">Ver descarga <span aria-hidden="true">↑</span></a>
     </section>
   </main>
 
   <footer>
-    <a class="brand footer-brand" href="#inicio"><span class="brand-mark" aria-hidden="true">A</span><span>ARMY <small>LAUNCHER</small></span></a>
+    <a class="brand footer-brand" href="#inicio"><img class="brand-mark" src="assets/kryoncraft-mark.png" alt="" width="29" height="29"><span>KRYON <small>CRAFT</small></span></a>
     <span>Minecraft Java Edition · Proyecto independiente</span>
-    <a href="https://elabraxx.github.io/Army-Launcher-Website/">Código fuente ↗</a>
+    <a href="https://dsc.gg/kryoncraft" target="_blank" rel="noopener noreferrer">Ayuda en Discord ↗</a>
   </footer>
 </body>
 </html>
