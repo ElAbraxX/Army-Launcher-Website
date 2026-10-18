@@ -31,8 +31,7 @@
   function installer(release) {
     if (!Array.isArray(release.assets)) return null;
     const asset = release.assets.find(item => installerUrl(item));
-    const metadata = release.assets.find(item => item.name === 'latest.yml');
-    if (!asset || !metadata) return null;
+    if (!asset) return null;
     const version = asset.name.match(/^KryonCraft-(\d+\.\d+\.\d+)-x64-Setup\.exe$/i)?.[1];
     if (!version || release.tag_name !== 'v' + version) return null;
     return asset;
@@ -79,7 +78,7 @@
       title.textContent = requestedVersion ? 'Versión no disponible' : 'Versiones publicadas sin instalador';
       description.textContent = requestedVersion
         ? 'No encontramos esa versión con instalador. Elige otra en el historial de versiones.'
-        : 'La descarga aparecerá cuando se adjunten el instalador y latest.yml a la publicación.';
+        : 'La descarga aparecerá cuando se adjunte el instalador a la publicación.';
       download.hidden = true;
     }
     if (!list) return;
