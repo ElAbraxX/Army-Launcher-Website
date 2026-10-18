@@ -8,6 +8,8 @@
   const title = document.getElementById('release-title');
   const description = document.getElementById('release-description');
   const download = document.getElementById('download-button');
+  const downloadPage = document.body.classList.contains('download-page');
+  const requestedVersion = downloadPage ? new URLSearchParams(location.search).get('version') : null;
 
   function installerUrl(asset) {
     try {
@@ -63,18 +65,21 @@
       empty('La primera versión aparecerá aquí cuando se publique en GitHub Releases.', 'Aún no hay instalador publicado');
       return;
     }
-    const current = published.find(release => installer(release));
+    const current = published.find(release =>
+      installer(release) && (!downloadPage || !requestedVersion || release.tag_name === 'v' + requestedVersion));
     if (current && badge) {
       const asset = installer(current);
       badge.textContent = current.prerelease ? 'Beta disponible' : 'Disponible';
       title.textContent = current.name || current.tag_name || 'Última versión';
       description.textContent = (current.prerelease ? 'Versión beta' : 'Versión estable') + ' · Windows 64 bits · ' + Math.round(asset.size / 1048576) + ' MB';
-      download.href = installerUrl(asset);
+      download.href = downloadPage ? installerUrl(asset) : 'descargar.html';
       download.hidden = false;
     } else if (badge) {
       badge.textContent = 'Sin instalador';
-      title.textContent = 'Versiones publicadas sin instalador';
-      description.textContent = 'La descarga aparecerá cuando se adjunten el instalador y latest.yml a la publicación.';
+      title.textContent = requestedVersion ? 'Versión no disponible' : 'Versiones publicadas sin instalador';
+      description.textContent = requestedVersion
+        ? 'No encontramos esa versión con instalador. Elige otra en el historial de versiones.'
+        : 'La descarga aparecerá cuando se adjunten el instalador y latest.yml a la publicación.';
       download.hidden = true;
     }
     if (!list) return;
@@ -96,7 +101,7 @@
       const links = document.createElement('div');
       links.className = 'version-links';
       const asset = installer(release);
-      if (asset) addLink(links, 'Descargar ↓', installerUrl(asset));
+      if (asset) addLink(links, 'Descargar ↓', 'descargar.html?version=' + encodeURIComponent(release.tag_name.slice(1)));
       addLink(links, 'Notas y archivos ↗', releaseUrl(release));
       card.append(summary, links);
       list.append(card);
