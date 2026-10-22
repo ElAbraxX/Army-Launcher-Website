@@ -168,3 +168,20 @@ h1 em,h2 em{color:#70cbff}
 .versions-note{max-width:750px;margin:-45px 0 85px;color:#a8b8d6;font-size:12px}
 .versions-page nav a[aria-current="page"]{color:#fff;font-weight:800}
 @media(max-width:560px){.versions-intro{margin-top:14px;padding:37px 22px}.versions-page .versions-section{padding-top:54px}.versions-note{margin-top:-30px}}
+
+.updater-section{display:grid;grid-template-columns:1fr .9fr;gap:46px;align-items:center;margin:12px 0 105px;padding:42px 5%;border:1px solid #4b6bb3;border-radius:18px;background:radial-gradient(ellipse at 0 100%,#1c3475 0,transparent 48%),linear-gradient(145deg,#111a35,#0d152c)}
+.updater-copy h2{margin:12px 0 16px;font-size:clamp(34px,4vw,49px)}
+.updater-copy>p:not(.eyebrow){max-width:560px;color:#bbcae7;font-size:14px;line-height:1.8}
+.updater-benefits{display:grid;gap:9px;margin:21px 0 0;padding:0;list-style:none;color:#d5e3fb;font-size:12px}
+.updater-benefits li{position:relative;padding-left:23px}
+.updater-benefits li::before{position:absolute;left:0;content:"✓";color:#53ecc2;font-weight:800}
+.updater-card{padding:24px;border:1px solid #5876b4;border-radius:15px;background:linear-gradient(145deg,#17264b,#101a35);box-shadow:0 18px 42px #0004}
+.updater-card-head{display:flex;align-items:center;gap:12px}
+.updater-icon{display:grid;place-items:center;flex:0 0 42px;height:42px;border:1px solid #5579bd;border-radius:10px;background:#203970;color:#7cddff;font-size:25px}
+.updater-card-head strong,.updater-card-head small{display:block}.updater-card-head strong{font-size:14px}.updater-card-head small{color:#afbedc;font-size:10px;line-height:1.5}
+.updater-badge{margin-left:auto;padding:4px 7px;border:1px solid #556fa8;border-radius:5px;color:#c6d7fa;font:10px "DM Mono",monospace;white-space:nowrap}
+.updater-card-lede{margin:21px 0 16px;color:#bdcce7;font-size:13px;line-height:1.75}
+.updater-pending{display:inline-flex;padding:7px 10px;border:1px solid #6e6242;border-radius:7px;background:#302a1a;color:#f1d890;font-size:11px;font-weight:700}
+.updater-footnote{display:block;margin-top:15px;padding-top:13px;border-top:1px solid #ffffff18;color:#a9b9d7;font-size:10px;line-height:1.7}
+@media(max-width:800px){.updater-section{grid-template-columns:1fr;gap:22px;margin-bottom:85px;padding:35px 7%}}
+@media(max-width:560px){.updater-section{margin-bottom:65px;padding:27px 21px}.updater-card{padding:19px}.updater-card-head{align-items:flex-start}.updater-badge{font-size:9px}}
