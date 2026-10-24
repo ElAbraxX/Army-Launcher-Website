@@ -10,6 +10,7 @@ on:
       - "versiones.html"
       - "assets/**"
       - "favicon.svg"
+      - "health.json"
       - ".nojekyll"
       - ".github/workflows/pages.yml"
   workflow_dispatch:
